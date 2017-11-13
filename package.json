@@ -23,6 +23,8 @@
   },
   "homepage": "https://github.com/team-wildlife/wildlife-server#readme",
   "dependencies": {
-    "express": "^4.16.2"
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "superagent": "^3.8.1"
   }
 }
