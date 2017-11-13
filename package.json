@@ -1,0 +1,28 @@
+{
+  "name": "wildlife-server",
+  "version": "1.0.0",
+  "description": "wildlife server",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/team-wildlife/wildlife-server.git"
+  },
+  "keywords": [
+    "wildlife",
+    "server",
+    "conservation"
+  ],
+  "author": "Catherine Looper, Nick Gibson, Andres Ibarra, Jeff Martinez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/team-wildlife/wildlife-server/issues"
+  },
+  "homepage": "https://github.com/team-wildlife/wildlife-server#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
