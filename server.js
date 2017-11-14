@@ -13,16 +13,11 @@ app.use(cors());
 
 app.get('/api/v1/countries/:iso', (req, res) => {
   const url = `http://apiv3.iucnredlist.org/api/v3/country/getspecies/${req.params.iso}?token=${process.env.REDLIST_TOKEN}`
-  superagent(url)
-    .set(`Authorization,`, `token ${process.env.REDLIST_TOKEN}`)
+  superagent.get(url)
     .then(
-      countries => res.send(countries.text),
+      speciesByCountry => res.send(speciesByCountry.text),
       err => res.send(err)
     )
-});
-
-app.get('/', (req, res) => {
-  res.sendFile('index.html')
 });
 
 app.get('*', (req, res) => res.redirect(CLIENT_URL));
