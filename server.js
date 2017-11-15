@@ -38,6 +38,14 @@ app.get('/api/v1/narrative/:name', (req, res) => {
     )
 });
 
+app.get('/api/v1/image/:search'), (req, res) => {
+  console.log('app.get');
+  // const url = `https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=${req.params.search}`
+  // headers : {
+  //   'Ocp-Apim-Subscription-Key': BING_TOKEN,
+}
+
+
 // app.get('/api/v1/endangerment/:code', (req, res) => {
 //   const url = `http://apiv3.iucnredlist.org/api/v3/species/category/CR?token=${process.env.REDLIST_TOKEN}`
 //   superagent.get(url)
