@@ -10,6 +10,15 @@ const superagent = require('superagent');
 app.use(express.static('./public'));
 app.use(cors());
 
+//gmaps API call not working. Need to find out how to format the request, can't find a simple answer in the docs
+// app.get('/api/v1/gmaps/:latlng', (req, res) => {
+//   const url = `https://maps.googleapis.com/maps/api/js?key=${process.env.GMAPS_TOKEN}&callback=initMap`
+//   superagent.get(url)
+//     .then(
+//       mapResult => res.send(mapResult),
+//       err => res.send(err)
+//     )
+// });
 
 app.get('/api/v1/countries/:iso', (req, res) => {
   const url = `http://apiv3.iucnredlist.org/api/v3/country/getspecies/${req.params.iso}?token=${process.env.REDLIST_TOKEN}`
