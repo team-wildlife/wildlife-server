@@ -38,35 +38,14 @@ app.get('/api/v1/narrative/:name', (req, res) => {
     )
 });
 
-// app.get('/api/v1/endangerment/:code', (req, res) => {
-//   const url = `http://apiv3.iucnredlist.org/api/v3/species/category/CR?token=${process.env.REDLIST_TOKEN}`
-//   superagent.get(url)
-//     .then(
-//       speciesByCountry => res.send(speciesByCountry.text),
-//       err => res.send(err)
-//     )
-// });
-
-
-// .then(data => console.log(data))
-
-// app.get('/api/v1/map/', (req, res) => {
-//   const url = `https://maps.googleapis.com/maps/api/js?key=${GMAPS_TOKEN}&callback=myMap`
-//   superagent.get(url)
-//     .then(
-//       map => res.send(map.text),
-//       err => res.send(err)
-//     )
-// });
-
-// app.get('/api/v1/photo/:name', (req, res) => {
-//   const url = `https://www.googleapis.com/customsearch/v1?key=${process.env.CUSTOM_SEARCH}&cx=017576662512468239146:omuauf_lfve&q=${req.params.name}`
-//   superagent.get(url)
-//     .then(
-//       speciesByCountry => res.send(speciesByCountry.text),
-//       err => res.send(err)
-//     )
-// });
+app.get('/api/v1/category/:category', (req, res) => {
+  const url = `http://apiv3.iucnredlist.org/api/v3/species/category/${req.params.category}?token=${process.env.REDLIST_TOKEN}`
+  superagent.get(url)
+    .then(
+      speciesByCategory => res.send(speciesByCategory.text),
+      err => res.send(err)
+    )
+})
 
 
 app.get('*', (req, res) => res.redirect(CLIENT_URL));
