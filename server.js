@@ -45,7 +45,18 @@ app.get('/api/v1/category/:category', (req, res) => {
       speciesByCategory => res.send(speciesByCategory.text),
       err => res.send(err)
     )
-})
+});
+
+app.get('/api/v1/images/:name', (req, res) => {
+  console.log('******');
+  const url = `https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=${req.params.name}`
+  superagent.get(url)
+    .set('Ocp-Apim-Subscription-Key', 'e23593948467494b89ba367541f66bbc')
+    .then(
+      imageBySpecies => res.send(imageBySpecies.text),
+      err => res.send(err)
+    )
+});
 
 
 app.get('*', (req, res) => res.redirect(CLIENT_URL));
