@@ -6,6 +6,7 @@ const PORT = process.env.PORT;
 const cors = require('cors');
 const CLIENT_URL = process.env.CLIENT_URL;
 const superagent = require('superagent');
+const jquery = require('jquery');
 
 app.use(express.static('./public'));
 app.use(cors());
@@ -38,12 +39,19 @@ app.get('/api/v1/narrative/:name', (req, res) => {
     )
 });
 
-app.get('/api/v1/image/:search'), (req, res) => {
-  console.log('app.get');
-  // const url = `https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=${req.params.search}`
-  // headers : {
-  //   'Ocp-Apim-Subscription-Key': BING_TOKEN,
-}
+////// IMAGE STUFF /////////
+app.get('/api/v1/images/:name', (req, res) => {
+  console.log('******');
+  const url = `https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=${req.params.name}`
+  superagent.get(url)
+    .set('Ocp-Apim-Subscription-Key', 'e23593948467494b89ba367541f66bbc')
+    .then(
+      speciesByCountry => res.send(speciesByCountry.text),
+      err => res.send(err)
+    )
+});
+//// END IMAGE STUFF ///////
+
 
 
 // app.get('/api/v1/endangerment/:code', (req, res) => {
